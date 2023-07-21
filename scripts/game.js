@@ -44,25 +44,42 @@ const populateMovies = () => {
     })
 }
 
-const handleSubmit = event => {
-    event.preventDefault();
-    let guess = event.target.guess.value
-    console.log("guess", guess)
-    guess = guess.toLowerCase().trim();
-    let answer = movieArray[randomNumber].title
-    answer = answer.toLowerCase();
+const handleGuess = (guess, answer) => {
+    const guesslength = guess.length
+    const answerlength = answer.length
 
-    const guessArr = guess.split(" ")
+    if (guesslength / answerlength <= .2) {
+        console.log("guess was false");
+        return false
+    }
+    
+    const guessArr = guess.split(" ");
+    const guessCharArr = guess.split("");
+
     const guessedRight = guessArr.forEach(guess => {
-        answer.includes(guess)
+        return answer.includes(guess)
     })
     console.log(guessArr);
 
-    if (answer.includes(guess) || guess.includes(answer) || guess === answer || guessedRight ) {
+    const guessedRightChars = guessCharArr.every(char => {
+        return answer.includes(char)
+    })
+
+    if (answer.includes(guess) || guess.includes(answer) || guess === answer || guessedRight || guessedRightChars) {
         console.log("guess was correct")
     } else {
         console.log("guess was false");
     }
+}
+
+const handleSubmit = event => {
+    event.preventDefault();
+
+    let guess = event.target.guess.value.toLowerCase().trim();
+    let answer = movieArray[randomNumber].title.toLowerCase();
+
+
+    handleGuess(guess, answer);
 
     
 }
