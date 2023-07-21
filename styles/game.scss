@@ -1,0 +1,13 @@
+@use "./partials/global" ;
+
+.game {
+
+    &__content{
+        &-img{
+           width: 100%;
+           filter: blur(35px);
+        //    image-rendering: pixelated;
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game__content-img {
+  width: 100%;
+  filter: blur(35px);
+  margin-bottom: 30px;
+}/*# sourceMappingURL=game.css.map */
