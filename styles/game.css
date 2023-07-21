@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+.game__content {
+  overflow: hidden;
+}
 .game__content-img {
   width: 100%;
   filter: blur(35px);

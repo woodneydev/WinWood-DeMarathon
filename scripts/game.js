@@ -3,7 +3,7 @@ const baseUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face/";
 const form = document.querySelector(".game__interactive-form");
 console.log("this is the form el:", form)
 let randomNumber;
-let blurNumber = 40;
+let blurNumber = 35;
 
 const wrongPhrasesArr = [
     "Wrrrroooonnnnggggg!",
@@ -100,8 +100,12 @@ const handleSubmit = event => {
         movieArray.splice(randomNumber, 1)
         console.log(movieArray);
         promptEl.innerText = "Answer Correct"
+        imgEl.setAttribute("style", `filter: blur(0px)`)
+        form.guess.value = ""
         setTimeout( () => {
             promptEl.innerText = ""
+            blurNumber = 35;
+            imgEl.setAttribute("style", `filter: blur(35px)`)
             loadOneMovie();
         }, 3000)
         
